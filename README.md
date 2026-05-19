@@ -211,11 +211,12 @@ If you create a useful pack and want to share it, open a GitHub Issue and attach
 
 - ChatGPT and I would like to encourage any and all users of this tool to share you additions and changes to what we have provided as an example top get you started so that we may all benefit from the experiences and collective wisdom and experience of all of you.  This framework could just as easily serve as a price list a catalog or a repository of whatever it is you would like to use it for and is released free to you liensed under MIT License Rules.  Enjoy everybody and thank you.  Peace!! WJF&ChatGPT
 
-- ## Infrastructure Support
+## Infrastructure Support
 
 Special thank you to **ClouDNS** for supporting reliable DNS infrastructure for BCBC projects.
 
-<img width="1024" height="768" alt="clouddns-logo" src="https://github.com/user-attachments/assets/ae448afd-ce3a-4cb6-8676-efc9cdc41e91" />
+
+<img width="96" height="48" alt="cloudns-logo-crop" src="https://github.com/user-attachments/assets/3d379a71-292a-4dec-9703-635c809c22e5" />
 
 ---
 
