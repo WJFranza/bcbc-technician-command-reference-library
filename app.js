@@ -51,7 +51,66 @@ ITEM|Check a service|systemctl status apache2 --no-pager|Shows current status an
 ITEM|Follow service logs|journalctl -u apache2 -f|Watches logs for a service live.|Press Ctrl+C to stop watching.|systemd,logs,safe
 ITEM|Show boot errors|journalctl -p err -b --no-pager|Displays error-priority logs from the current boot.|Good for troubleshooting failed boots or driver issues.|systemd,logs,boot,safe
 ITEM|Enable a service at boot|sudo systemctl enable apache2|Sets a service to start automatically.|Only enable services you actually want at boot.|systemd,startup,caution
-ITEM|Restart a service|sudo systemctl restart apache2|Restarts a service.|Use status and logs after restarting to verify clean startup.|systemd,services,caution`
+ITEM|Restart a service|sudo systemctl restart apache2|Restarts a service.|Use status and logs after restarting to verify clean startup.|systemd,services,caution`,
+`PACK|nmap-core-2026-05-21|Network Scanning: Nmap Core|Authorized network discovery and scanning commands for technician learning, LAN inventory, service checks, output reporting, and careful defensive testing. Read-only first. Only scan systems you own or have permission to test.|1.0
+ITEM|Nmap safe-use reminder|echo 'Only scan systems and networks you own or have explicit permission to test.'|A reminder before running scans.|Use Nmap only on authorized targets. Unauthorized scanning can cause trouble.|nmap,ethics,safety
+ITEM|Basic host scan|nmap 192.168.0.10|Scans the most common 1000 TCP ports on one host.|Replace the IP with an authorized target.|nmap,basic,tcp,safe
+ITEM|Scan local subnet|nmap 192.168.0.0/24|Scans the local subnet for hosts and common open TCP ports.|Use only on networks you own or are allowed to test.|nmap,subnet,tcp,safe
+ITEM|Ping discovery only|nmap -sn 192.168.0.0/24|Discovers live hosts without doing a port scan.|Good first step on your own LAN.|nmap,discovery,ping,safe
+ITEM|No ping host scan|nmap -Pn 192.168.0.10|Treats the host as online and scans even if ping is blocked.|Useful when firewalls block ICMP. Can be slower.|nmap,firewall,tcp,caution
+ITEM|Show scan reasons|nmap --reason 192.168.0.10|Shows why Nmap decided a port or host is in a certain state.|Helpful for learning and troubleshooting.|nmap,diagnostics,safe
+ITEM|Verbose basic scan|nmap -v 192.168.0.10|Runs a normal scan with more progress detail.|Good for long scans so the user can see activity.|nmap,basic,verbose,safe
+ITEM|Very verbose scan|nmap -vv 192.168.0.10|Runs a scan with extra verbose output.|Useful during training or demonstrations.|nmap,verbose,training,safe
+ITEM|Fast top ports scan|nmap -F 192.168.0.10|Scans fewer common ports for a quicker first look.|Good when you want speed over completeness.|nmap,fast,tcp,safe
+ITEM|Top 20 ports|nmap --top-ports 20 192.168.0.10|Scans the top 20 most common ports.|Good quick triage command.|nmap,ports,fast,safe
+ITEM|Top 100 ports|nmap --top-ports 100 192.168.0.10|Scans the top 100 most common ports.|Useful compromise between speed and coverage.|nmap,ports,fast,safe
+ITEM|Specific ports|nmap -p 22,80,443 192.168.0.10|Scans only selected ports.|Edit the port list for the service you are checking.|nmap,ports,tcp,safe
+ITEM|Port range scan|nmap -p 1-1024 192.168.0.10|Scans a range of TCP ports.|Good for checking standard privileged service ports.|nmap,ports,tcp,safe
+ITEM|All TCP ports|nmap -p- 192.168.0.10|Scans all 65535 TCP ports.|Can take time. Use on authorized hosts only.|nmap,ports,complete,caution
+ITEM|All TCP ports with faster timing|nmap -p- -T4 192.168.0.10|Scans all TCP ports with faster timing.|Use carefully on small authorized networks. May be noisy.|nmap,ports,timing,caution
+ITEM|Service version detection|nmap -sV 192.168.0.10|Attempts to identify service versions on open ports.|Useful for inventory and patch planning.|nmap,services,inventory,safe
+ITEM|Default scripts and version detection|nmap -sC -sV 192.168.0.10|Runs default safe scripts and service version detection.|Good general-purpose authorized host scan.|nmap,scripts,services,safe
+ITEM|Aggressive information scan|nmap -A 192.168.0.10|Enables OS detection, version detection, scripts, and traceroute.|Powerful but noisier. Use only where appropriate.|nmap,advanced,caution
+ITEM|OS detection|sudo nmap -O 192.168.0.10|Attempts to detect the target operating system.|Requires privileges for best results.|nmap,os,diagnostics,caution
+ITEM|OS detection with guessing|sudo nmap -O --osscan-guess 192.168.0.10|Attempts OS detection with more aggressive guessing.|Treat results as estimates, not proof.|nmap,os,diagnostics,caution
+ITEM|TCP SYN scan|sudo nmap -sS 192.168.0.10|Runs a TCP SYN scan.|Requires privileges. Standard technician scan mode.|nmap,tcp,privileged,caution
+ITEM|TCP connect scan|nmap -sT 192.168.0.10|Runs a TCP connect scan without raw packet privileges.|Useful when sudo is unavailable.|nmap,tcp,safe
+ITEM|UDP top ports|sudo nmap -sU --top-ports 20 192.168.0.10|Scans the top 20 UDP ports.|UDP scans are slower and may be rate-limited.|nmap,udp,caution
+ITEM|UDP common service ports|sudo nmap -sU -p 53,67,68,123,137,161,500,1900 192.168.0.10|Checks common UDP service ports.|Good for DNS, DHCP, NTP, NetBIOS, SNMP, VPN, and discovery services.|nmap,udp,services,caution
+ITEM|TCP plus UDP quick service check|sudo nmap -sS -sU --top-ports 20 192.168.0.10|Runs a small TCP SYN plus UDP scan.|Use on one authorized host first before scanning ranges.|nmap,tcp,udp,caution
+ITEM|List scan without probing|nmap -sL 192.168.0.0/24|Lists targets that would be scanned without sending probes to them.|Useful for verifying target ranges before a real scan.|nmap,planning,safe
+ITEM|ARP discovery on local LAN|sudo nmap -PR -sn 192.168.0.0/24|Uses ARP discovery on a local Ethernet network.|Very useful on local LANs.|nmap,discovery,lan,safe
+ITEM|Traceroute to target|nmap --traceroute 192.168.0.10|Shows the network path Nmap sees to the target.|Useful for route troubleshooting.|nmap,network,traceroute,safe
+ITEM|Scan from input list|nmap -iL targets.txt|Scans targets listed in a text file.|One target or network per line. Keep the file authorized and documented.|nmap,targets,file,safe
+ITEM|Exclude one host|nmap 192.168.0.0/24 --exclude 192.168.0.1|Scans a range while excluding one host.|Useful to avoid routers, printers, or fragile devices.|nmap,targets,safety
+ITEM|Exclude from file|nmap 192.168.0.0/24 --excludefile exclude.txt|Scans a range while excluding targets listed in a file.|Good for controlled scans on mixed networks.|nmap,targets,safety
+ITEM|Normal text output|nmap -oN scan.txt 192.168.0.10|Saves normal readable output to a text file.|Good for quick notes and customer records.|nmap,output,reporting,safe
+ITEM|Grepable output|nmap -oG scan.gnmap 192.168.0.0/24|Saves grepable output.|Useful for simple parsing and older workflows.|nmap,output,reporting,safe
+ITEM|XML output|nmap -oX scan.xml 192.168.0.10|Saves XML output.|Useful for tools that import Nmap results.|nmap,output,xml,safe
+ITEM|All output formats|nmap -oA scan-base 192.168.0.10|Saves normal, grepable, and XML outputs using one base name.|Best reporting habit for repeatable technician work.|nmap,output,reporting,safe
+ITEM|Dated output base|nmap -oA nmap-scan-$(date +%Y%m%d-%H%M%S) 192.168.0.10|Saves scan output with a timestamped base name.|Good for clean evidence folders and audit trails.|nmap,output,dated,safe
+ITEM|Default NSE scripts|nmap --script default 192.168.0.10|Runs Nmap default scripts.|Usually safe, but still use only on authorized hosts.|nmap,nse,scripts,safe
+ITEM|Safe NSE scripts|nmap --script safe 192.168.0.10|Runs scripts categorized as safe.|Good for learning and low-risk inventory.|nmap,nse,scripts,safe
+ITEM|HTTP title check|nmap --script http-title -p 80,443 192.168.0.10|Gets web page titles from HTTP or HTTPS services.|Useful for identifying web interfaces.|nmap,http,nse,safe
+ITEM|HTTP headers check|nmap --script http-headers -p 80,443 192.168.0.10|Shows HTTP response headers.|Helpful for web server inventory and troubleshooting.|nmap,http,nse,safe
+ITEM|TLS certificate check|nmap --script ssl-cert -p 443 192.168.0.10|Shows certificate details for TLS services.|Useful for checking names, dates, and issuers.|nmap,tls,nse,safe
+ITEM|TLS cipher inventory|nmap --script ssl-enum-ciphers -p 443 192.168.0.10|Lists supported TLS ciphers.|Use for defensive configuration review.|nmap,tls,nse,caution
+ITEM|SMB OS discovery|nmap --script smb-os-discovery -p 445 192.168.0.10|Attempts to identify SMB host OS details.|Use only on authorized internal hosts.|nmap,smb,nse,caution
+ITEM|SMB shares enumeration|nmap --script smb-enum-shares -p 445 192.168.0.10|Attempts to enumerate SMB shares.|Authorized admin use only. Avoid on networks you do not control.|nmap,smb,nse,caution
+ITEM|DNS service check|nmap -sU -p 53 --script dns-nsid 192.168.0.10|Checks DNS NSID information on UDP 53.|Useful for DNS server identification when allowed.|nmap,dns,udp,nse,caution
+ITEM|SNMP basic info|sudo nmap -sU -p 161 --script snmp-info 192.168.0.10|Queries basic SNMP information.|Use only on your own managed devices.|nmap,snmp,udp,nse,caution
+ITEM|Vulnerability script category|nmap --script vuln 192.168.0.10|Runs Nmap vulnerability category scripts.|Defensive use only. Can be noisy. Prefer one host at a time.|nmap,vulnerability,nse,caution
+ITEM|Firewall ACK scan|sudo nmap -sA 192.168.0.10|Uses ACK packets to help infer firewall filtering behavior.|For authorized firewall testing and learning only.|nmap,firewall,privileged,caution
+ITEM|TCP NULL scan in lab|sudo nmap -sN 192.168.0.10|Runs a TCP NULL scan.|Use only in a lab or authorized assessment. Results vary by target OS.|nmap,firewall,lab,caution
+ITEM|TCP FIN scan in lab|sudo nmap -sF 192.168.0.10|Runs a TCP FIN scan.|Use only in a lab or authorized assessment. Results vary by target OS.|nmap,firewall,lab,caution
+ITEM|TCP Xmas scan in lab|sudo nmap -sX 192.168.0.10|Runs a TCP Xmas scan.|Use only in a lab or authorized assessment. Results vary by target OS.|nmap,firewall,lab,caution
+ITEM|Slow polite timing|nmap -T2 192.168.0.10|Uses slower timing to reduce network load.|Good for fragile or busy networks.|nmap,timing,safe
+ITEM|Normal timing|nmap -T3 192.168.0.10|Uses default normal timing.|Balanced default for many scans.|nmap,timing,safe
+ITEM|Faster timing|nmap -T4 192.168.0.10|Uses faster timing.|Good on reliable local networks. Avoid fragile devices.|nmap,timing,caution
+ITEM|Packet trace for learning|sudo nmap --packet-trace -p 80 192.168.0.10|Shows packets sent and received by Nmap.|Great for education, but output can be large.|nmap,learning,packets,caution
+ITEM|Interface list|nmap --iflist|Lists interfaces and routes known to Nmap.|Safe local diagnostic command.|nmap,local,network,safe
+ITEM|Version check|nmap --version|Shows installed Nmap version and features.|Useful for support notes and reproducibility.|nmap,local,version,safe`
+
 ];
 
 let packs = [];
