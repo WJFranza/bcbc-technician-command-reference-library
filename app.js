@@ -110,6 +110,24 @@ ITEM|Faster timing|nmap -T4 192.168.0.10|Uses faster timing.|Good on reliable lo
 ITEM|Packet trace for learning|sudo nmap --packet-trace -p 80 192.168.0.10|Shows packets sent and received by Nmap.|Great for education, but output can be large.|nmap,learning,packets,caution
 ITEM|Interface list|nmap --iflist|Lists interfaces and routes known to Nmap.|Safe local diagnostic command.|nmap,local,network,safe
 ITEM|Version check|nmap --version|Shows installed Nmap version and features.|Useful for support notes and reproducibility.|nmap,local,version,safe`
+,
+`PACK|cybersecurity-ctf-labs-2026-05-21|Cybersecurity Practice: CTF Labs|Legal cybersecurity practice sites for CTFs, command-line challenges, web security labs, beginner training, and defensive skill building. Availability and free tiers may change. Use authorized lab environments only.|1.0
+ITEM|CTF safe-use reminder|echo 'Use CTF labs and practice systems only. Do not test, scan, attack, or exploit systems without explicit permission.'|A safety reminder before practicing cybersecurity skills.|Keep training legal, ethical, and contained to authorized labs.|cybersecurity,ctf,ethics,safety
+ITEM|TryHackMe|xdg-open https://tryhackme.com|Opens TryHackMe, a guided cybersecurity learning and CTF practice platform.|Use your own account and follow each room/lab scope.|cybersecurity,ctf,training,web
+ITEM|VulnHub|xdg-open https://vulnhub.com|Opens VulnHub, a site for downloadable vulnerable machines and practice images.|Run vulnerable machines only inside an isolated lab network.|cybersecurity,ctf,vms,lab
+ITEM|Root-Me|xdg-open https://root-me.org|Opens Root-Me, a cybersecurity challenge and practice platform.|Good for challenge-based learning across multiple categories.|cybersecurity,ctf,challenges,training
+ITEM|OverTheWire|xdg-open https://overthewire.org|Opens OverTheWire, known for command-line and security wargames.|Excellent beginner-friendly command-line security practice.|cybersecurity,linux,ctf,terminal
+ITEM|PicoCTF|xdg-open https://picoctf.com|Opens PicoCTF, a beginner-friendly CTF learning platform.|Good for structured practice and education.|cybersecurity,ctf,beginners,training
+ITEM|PentesterLab|xdg-open https://pentesterlab.com|Opens PentesterLab, a web security and application security training platform.|Use only the provided exercises and authorized lab targets.|cybersecurity,websecurity,pentesting,training
+ITEM|Google CTF|xdg-open https://capturetheflag.withgoogle.com|Opens Google's Capture The Flag site.|Useful for CTF practice and challenge archives.|cybersecurity,ctf,google,challenges
+ITEM|CMD Challenge|xdg-open https://cmdchallenge.com|Opens CMD Challenge, a command-line challenge site.|Good for shell skills, pipelines, and command practice.|terminal,linux,commands,training
+ITEM|Hack The Box|xdg-open https://hackthebox.com|Opens Hack The Box, a cybersecurity lab and challenge platform.|Respect lab rules and target scope.|cybersecurity,ctf,lab,pentesting
+ITEM|Hacker Security CTF|xdg-open https://capturetheflag.com.br|Opens Hacker Security CTF.|Use for authorized CTF challenge practice.|cybersecurity,ctf,training,br
+ITEM|Komodo Security CTF|xdg-open https://ctf.komodosec.com|Opens Komodo Security CTF.|Use for legal CTF practice only.|cybersecurity,ctf,training
+ITEM|Hackaflag Academy BR|xdg-open https://hackaflag.com.br|Opens Hackaflag Academy BR.|Use for authorized cybersecurity learning and CTF practice.|cybersecurity,ctf,training,br
+ITEM|AttackDefense|xdg-open https://attackdefense.com|Opens AttackDefense, a hands-on security lab platform.|Stay within assigned lab machines and exercises.|cybersecurity,lab,pentesting,training
+ITEM|Hacker101 CTF|xdg-open https://ctf.hacker101.com|Opens Hacker101 CTF.|Good for web security and CTF-style practice.|cybersecurity,ctf,websecurity,training
+ITEM|CTF practice workflow|printf '%s\\n' '1. Read the rules and scope.' '2. Start with beginner labs.' '3. Take notes.' '4. Save commands that worked.' '5. Write a short after-action summary.'|A simple workflow for learning from CTF practice instead of just guessing.|The goal is learning, documentation, and repeatable technique.|cybersecurity,workflow,notes,training`
 
 ];
 
