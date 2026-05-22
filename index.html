@@ -78,6 +78,7 @@
               <option value="">No local packs found</option>
             </select>
             <button id="deleteLocalPackBtn" class="small-button small-button--danger" type="button">Delete selected local pack</button>
+            <button id="deleteAllLocalPacksBtn" class="small-button small-button--danger" type="button">Backup + delete all local packs</button>
             <p class="tool-note">Deleting a local override restores the built-in pack if one exists. Use Export all before cleanup.</p>
           </div>
 
@@ -180,5 +181,8 @@
   </div>
 
   <script src="app.js"></script>
+<!-- BCBC Global Footer -->
+<?php include("/var/www/bcbc/_footer.html"); ?>
+<footer class="global-footer">Infrastructure DNS powered by ClouDNS</footer>
 </body>
 </html>
