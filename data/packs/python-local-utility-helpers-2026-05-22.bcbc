@@ -1,0 +1,25 @@
+PACK|python-local-utility-helpers-2026-05-22|Python Local Utility Helpers|Quick Python commands for local web testing, JSON validation, file inspection, image resizing, and small admin automation tasks.|1.0
+
+ITEM|Serve current folder locally|python3 -m http.server 8088|Starts a simple web server in the current directory.|Open http://127.0.0.1:8088 to test static HTML, CSS, and JavaScript locally.|python,web,local-testing,safe
+
+ITEM|Serve local-only web folder|python3 -m http.server 8088 --bind 127.0.0.1|Starts a local-only web server bound to localhost.|Safer for testing private work without exposing it to the LAN.|python,web,local-testing,safe
+
+ITEM|Pretty-print JSON|python3 -m json.tool file.json|Validates and formats JSON to the terminal.|Useful for checking config files and API output.|python,json,validation,safe
+
+ITEM|Pretty-print JSON to file|python3 -m json.tool input.json > output.json|Validates and formats JSON into a new file.|Keeps the original file unchanged.|python,json,files,safe
+
+ITEM|Quick list files with Python|python3 - <<'PY'\nfrom pathlib import Path\nfor p in Path('.').iterdir():\n    print(p)\nPY|Lists files in the current directory using pathlib.|Good starter example for Python filesystem automation.|python,filesystem,scripting,safe
+
+ITEM|List text files and sizes|python3 - <<'PY'\nfrom pathlib import Path\nfor p in Path('.').glob('*.txt'):\n    print(p.name, p.stat().st_size)\nPY|Lists .txt files and byte sizes.|Useful for quick review folders and extracted text output.|python,filesystem,reports,safe
+
+ITEM|Create simple file index|python3 - <<'PY'\nfrom pathlib import Path\nfor p in sorted(Path('.').iterdir()):\n    print(f'{p.name}\\t{p.stat().st_size if p.is_file() else \"DIR\"}')\nPY|Prints a basic directory index with sizes.|Useful before organizing downloads or project assets.|python,filesystem,index,safe
+
+ITEM|Resize image with Pillow|python3 - <<'PY'\nfrom PIL import Image\nimg = Image.open('input.png')\nimg.thumbnail((1200, 1200))\nimg.save('output.png')\nPY|Resizes an image while preserving aspect ratio.|Requires Pillow. Install with python3 -m pip install pillow if needed.|python,image,pillow,graphics
+
+ITEM|Convert image with Pillow|python3 - <<'PY'\nfrom PIL import Image\nImage.open('input.png').save('output.webp')\nPY|Converts an image to another format supported by Pillow.|Useful for web graphics and lightweight assets.|python,image,pillow,web
+
+ITEM|Check Python version|python3 --version|Shows installed Python version.|Useful before running scripts or troubleshooting environments.|python,version,safe
+
+ITEM|Create virtual environment|python3 -m venv .venv|Creates a local Python virtual environment.|Good practice for project-specific Python tools.|python,venv,development,safe
+
+ITEM|Activate virtual environment|source .venv/bin/activate|Activates a local Python virtual environment.|Run from the project directory after creating .venv.|python,venv,development,safe

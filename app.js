@@ -290,8 +290,24 @@ function smartImportText(text) {
   throw new Error("First useful line must start with PACK| or ITEM|.");
 }
 
-function loadBuiltins() {
+async function loadBuiltins() {
   const builtins = BUILTIN_PACK_TEXT.map(parsePack);
+
+  try {
+    const res = await fetch("data/packs/index.json", { cache: "no-store" });
+    if (res.ok) {
+      const files = await res.json();
+      for (const file of files) {
+        const packRes = await fetch(`data/packs/${file}`, { cache: "no-store" });
+        if (!packRes.ok) continue;
+        const text = await packRes.text();
+        builtins.push(parsePack(text));
+      }
+    }
+  } catch (err) {
+    console.warn("Pack file loading skipped:", err);
+  }
+
   const imported = getImportedPacks();
 
   // One visible pack per id.
@@ -301,7 +317,7 @@ function loadBuiltins() {
   for (const pack of builtins) byId.set(pack.id, pack);
   for (const pack of imported) byId.set(pack.id, pack);
 
-  packs = Array.from(byId.values());
+  packs = Array.from(byId.values()).sort((a, b) => a.title.localeCompare(b.title));
 
   if (!activePackId || (activePackId !== "all" && !packs.some(p => p.id === activePackId))) {
     activePackId = "all";

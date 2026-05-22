@@ -1,0 +1,35 @@
+PACK|sysadmin-reference-library-2026-05-22|SysAdmin Reference Library|Safe reference links for Linux, networking, DNS, Bash, systemd, Nmap inventory, Wireshark analysis, and administrator learning.|1.0
+
+ITEM|Linux man pages online|xdg-open https://man7.org/linux/man-pages/|Official-style Linux manual page reference.|Useful for commands, syscalls, networking, and admin details.|reference,linux,manpages,safe
+
+ITEM|Debian documentation|xdg-open https://www.debian.org/doc/|Debian project documentation.|Useful for Debian systems, packages, and administration.|reference,debian,linux,safe
+
+ITEM|Arch Wiki|xdg-open https://wiki.archlinux.org/|High-quality Linux reference wiki.|Useful even outside Arch because explanations are often excellent.|reference,linux,learning,safe
+
+ITEM|systemd documentation|xdg-open https://systemd.io/|Official systemd project documentation.|Useful for services, timers, logs, and boot behavior.|reference,systemd,services,safe
+
+ITEM|OpenSSH manual|xdg-open https://www.openssh.com/manual.html|OpenSSH documentation and manuals.|Useful for secure remote administration.|reference,ssh,remote-admin,safe
+
+ITEM|rsync documentation|xdg-open https://download.samba.org/pub/rsync/rsync.1|rsync manual page.|Useful for backups, sync jobs, and migration workflows.|reference,rsync,backup,safe
+
+ITEM|Nmap reference guide|xdg-open https://nmap.org/book/man.html|Official Nmap reference guide.|Use only for authorized inventory and visibility work.|reference,nmap,inventory,safe
+
+ITEM|Wireshark documentation|xdg-open https://www.wireshark.org/docs/|Official Wireshark documentation.|Useful for packet analysis and network troubleshooting.|reference,wireshark,networking,safe
+
+ITEM|Wireshark display filters|xdg-open https://wiki.wireshark.org/DisplayFilters|Wireshark display filter reference.|Useful for narrowing packet captures during troubleshooting.|reference,wireshark,filters,safe
+
+ITEM|IANA protocol numbers|xdg-open https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml|Official protocol number registry.|Useful when reading packets, firewall rules, or captures.|reference,networking,iana,safe
+
+ITEM|IANA port numbers|xdg-open https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml|Official service name and port registry.|Useful for identifying common services and ports.|reference,networking,ports,safe
+
+ITEM|Cloudflare DNS learning center|xdg-open https://www.cloudflare.com/learning/dns/|Plain-English DNS learning material.|Useful for DNS fundamentals and troubleshooting concepts.|reference,dns,learning,safe
+
+ITEM|ClouDNS knowledge base|xdg-open https://www.cloudns.net/wiki/|ClouDNS DNS knowledge base.|Useful DNS reference and infrastructure learning material.|reference,dns,cloudns,safe
+
+ITEM|Bash reference manual|xdg-open https://www.gnu.org/software/bash/manual/bash.html|GNU Bash manual.|Useful for shell scripting and automation.|reference,bash,scripting,safe
+
+ITEM|GNU Coreutils manual|xdg-open https://www.gnu.org/software/coreutils/manual/|GNU core utilities documentation.|Useful for common Linux command behavior.|reference,linux,coreutils,safe
+
+ITEM|curl documentation|xdg-open https://curl.se/docs/|Official curl documentation.|Useful for HTTP testing, API checks, and downloads.|reference,curl,http,safe
+
+ITEM|Git documentation|xdg-open https://git-scm.com/doc|Official Git documentation.|Useful for source control and project workflows.|reference,git,documentation,safe

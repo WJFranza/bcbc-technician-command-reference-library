@@ -1,0 +1,59 @@
+PACK|linux-core-admin-commands-2026-05-22|Linux Core Admin Commands|Core Linux administrator commands for navigation, services, logs, storage, networking, permissions, monitoring, and safe operational workflows.|1.0
+
+ITEM|Show current directory|pwd|Displays the current working directory.|Useful before file operations or scripts.|linux,filesystem,navigation,safe
+
+ITEM|List files detailed|ls -lah|Lists files with permissions, ownership, size, and hidden files.|Common safe directory inspection command.|linux,filesystem,listing,safe
+
+ITEM|Change directory|cd /path/to/directory|Changes current working directory.|Basic filesystem navigation.|linux,navigation,safe
+
+ITEM|Create directory|mkdir new-directory|Creates a new directory.|Useful for organized project structure.|linux,filesystem,safe
+
+ITEM|Copy files recursively|cp -av source/ target/|Copies files and directories preserving attributes.|Useful for backups and migrations.|linux,filesystem,backup,safe
+
+ITEM|Move or rename files|mv oldname newname|Moves or renames files and directories.|Common maintenance operation.|linux,filesystem,safe
+
+ITEM|Remove file|rm filename|Deletes a file.|Use carefully and verify paths first.|linux,filesystem,cleanup
+
+ITEM|Remove directory recursively|rm -rf directory|Recursively removes directory contents.|Dangerous command. Verify target carefully.|linux,filesystem,danger
+
+ITEM|Show mounted filesystems|lsblk -f|Displays block devices, filesystems, UUIDs, and mount points.|Useful before mounting or formatting disks.|linux,storage,disks,safe
+
+ITEM|Show disk usage|df -h|Displays mounted filesystem usage in human-readable format.|Useful for finding low disk space.|linux,storage,monitoring,safe
+
+ITEM|Show directory sizes|du -sh *|Shows directory sizes in current folder.|Useful for locating large files/directories.|linux,storage,cleanup,safe
+
+ITEM|Show memory usage|free -h|Displays RAM and swap usage.|Useful for performance troubleshooting.|linux,memory,monitoring,safe
+
+ITEM|Show running processes|ps aux|Displays active processes.|Useful for troubleshooting and audits.|linux,processes,monitoring,safe
+
+ITEM|Interactive process viewer|top|Real-time process and resource monitoring.|Basic Linux performance monitoring.|linux,monitoring,performance,safe
+
+ITEM|Search for files|find /path -name 'filename*'|Searches filesystem for matching names.|Useful for locating configs and logs.|linux,filesystem,search,safe
+
+ITEM|Search inside files|grep -R 'pattern' /path|Searches recursively inside files.|Useful for logs and configuration searches.|linux,search,logs,safe
+
+ITEM|Show recent logs|journalctl -xe|Displays recent systemd logs and errors.|Useful during troubleshooting.|linux,logs,systemd,safe
+
+ITEM|Follow live logs|journalctl -f|Follows live journal output.|Useful during service testing.|linux,logs,monitoring,safe
+
+ITEM|Service status|systemctl status service-name|Shows systemd service status.|Useful for diagnosing failed services.|linux,systemd,services,safe
+
+ITEM|Restart service|sudo systemctl restart service-name|Restarts a systemd service.|Useful after config changes.|linux,systemd,services,safe
+
+ITEM|Enable service at boot|sudo systemctl enable service-name|Enables a service during startup.|Useful for persistent infrastructure services.|linux,systemd,services,safe
+
+ITEM|Show IP addresses|ip -br addr|Displays network interfaces and IPs in brief format.|Useful for quick network checks.|linux,networking,safe
+
+ITEM|Show listening ports|ss -tulpn|Displays listening TCP/UDP ports and owning processes.|Useful for service verification.|linux,networking,monitoring,safe
+
+ITEM|DNS lookup|dig example.com|Queries DNS records.|Useful for DNS troubleshooting.|linux,dns,networking,safe
+
+ITEM|Secure copy|scp file user@host:/path|Copies files securely over SSH.|Useful for server administration.|linux,ssh,networking,safe
+
+ITEM|Remote shell login|ssh user@host|Connects securely to remote systems.|Core remote administration tool.|linux,ssh,remote,safe
+
+ITEM|Sync files safely|rsync -avh source/ target/|Efficiently syncs files and directories.|Useful for backups and migrations.|linux,backup,rsync,safe
+
+ITEM|Create compressed archive|tar czf archive.tar.gz directory/|Creates compressed tar archive.|Useful for backups and transfers.|linux,archives,backup,safe
+
+ITEM|Extract compressed archive|tar xzf archive.tar.gz|Extracts compressed tar archive.|Useful for package extraction and restores.|linux,archives,safe

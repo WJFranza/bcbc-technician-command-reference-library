@@ -1,0 +1,33 @@
+PACK|bcbc-admin-workstation-toolkit-2026-05-22|BCBC Admin Workstation Toolkit|Common Debian/Ubuntu packages and verification commands used for BCBC dashboards, diagnostics, local web work, sensors, storage checks, networking, images, Node.js, Python, and NVIDIA troubleshooting.|1.0
+
+ITEM|Install core admin toolkit|sudo apt update && sudo apt install -y curl wget git rsync unzip zip tar tree lsof nano vim htop ncdu|Installs common admin utilities.|Good baseline for a fresh Debian or Ubuntu technician workstation.|debian,ubuntu,packages,admin,toolkit
+
+ITEM|Install networking and DNS tools|sudo apt install -y dnsutils iproute2 net-tools traceroute whois nmap tcpdump netcat-openbsd|Installs common network troubleshooting tools.|Includes dig, ip, ss, ifconfig/netstat, traceroute, whois, nmap, tcpdump, and nc.|networking,dns,tools,admin
+
+ITEM|Install storage and hardware tools|sudo apt install -y lm-sensors smartmontools nvme-cli pciutils usbutils lshw hdparm|Installs hardware, sensor, disk, NVMe, PCI, and USB inspection tools.|Useful for dashboards, thermal checks, and hardware triage.|hardware,storage,sensors,diagnostics
+
+ITEM|Install performance tools|sudo apt install -y iotop iftop sysstat procps psmisc|Installs performance and process monitoring tools.|Useful for checking CPU, disk I/O, network usage, and process behavior.|performance,monitoring,admin
+
+ITEM|Install image PDF and media tools|sudo apt install -y imagemagick poppler-utils ffmpeg|Installs image manipulation, PDF text extraction, and media conversion tools.|Useful for banners, screenshots, PDF extraction, and video/audio handling.|images,pdf,media,tools
+
+ITEM|Install Python tooling|sudo apt install -y python3 python3-venv python3-pip python3-full|Installs Python and common Python environment tools.|Useful for local scripts, HTTP servers, automation, and helper utilities.|python,development,automation
+
+ITEM|Install Node.js tooling|sudo apt install -y nodejs npm|Installs Node.js and npm from distro packages.|Useful for JavaScript tooling, simple web apps, and local build helpers.|nodejs,javascript,web,development
+
+ITEM|Install build and DKMS tools|sudo apt install -y build-essential dkms linux-headers-$(uname -r)|Installs compiler, DKMS, and current kernel headers.|Useful for driver builds and NVIDIA troubleshooting.|build,dkms,nvidia,kernel
+
+ITEM|Detect sensors|sudo sensors-detect|Detects hardware sensors for lm-sensors.|Answer carefully. Useful before using sensors in dashboards.|sensors,hardware,thermal
+
+ITEM|Show sensor readings|sensors|Displays temperature, voltage, and fan sensor readings where available.|Useful for thermal monitoring and dashboards.|sensors,thermal,monitoring
+
+ITEM|Check NVIDIA status|nvidia-smi|Displays NVIDIA driver, GPU, memory, process, and temperature information.|Verification command after NVIDIA driver setup.|nvidia,gpu,monitoring
+
+ITEM|Check disks and filesystems|lsblk -f && echo && df -h|Shows block devices, filesystems, mountpoints, and disk usage.|Quick storage baseline before troubleshooting.|storage,filesystem,diagnostics
+
+ITEM|Check network interfaces and listeners|ip -br addr && echo && ss -tulpn|Shows IP addresses and listening ports.|Good quick network/service verification.|networking,services,diagnostics
+
+ITEM|Check system identity|hostnamectl && echo && uname -a|Shows hostname, OS, kernel, and system identity.|Useful for support notes and troubleshooting logs.|system,identity,diagnostics
+
+ITEM|Check failed services|systemctl --failed --no-pager|Lists failed systemd units.|Fast health check after boot or updates.|systemd,services,diagnostics
+
+ITEM|View recent boot errors|journalctl -p warning..alert -b --no-pager | tail -80|Shows recent warnings/errors from current boot.|Useful for first-pass troubleshooting.|logs,systemd,diagnostics
