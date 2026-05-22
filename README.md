@@ -205,6 +205,18 @@ Changes:
 - Imported/modified packs are browser-local; export before switching browsers or clearing browser data.
 ---
 
+## New in v4.0
+
+- Dynamic pack loading from data/packs/
+- Modular .bcbc pack architecture
+- Automatic pack discovery using index.json
+- Python Local Utility Helpers pack
+- BCBC Admin Workstation Toolkit pack
+- Expanded Linux admin and defensive operations references
+- Improved portability for GitHub Pages, LAN servers, and offline USB deployments
+
+  ---
+
 - ## Sharing command packs
 
 If you create a useful pack and want to share it, open a GitHub Issue and attach your exported `.bcbc` file, or paste the flat-file pack text into the issue body. Clean, beginner-friendly, and technician-useful packs may be reviewed and added to the project.
