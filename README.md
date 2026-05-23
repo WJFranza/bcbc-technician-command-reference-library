@@ -15,7 +15,7 @@ This project focuses on clean command packs, searchable workflows, and simple fl
 - Lets users build and extend their own command libraries
 - Keeps the interface simple, fast, and beginner-friendly
 - Helps turn useful commands into reusable learning material
-- Stand along car run on any plafrorm with a WWW Browser or on any webserver platrorm including python instance or flask
+- Stand alone or can run on any plafrorm with a WWW Browser or on any webserver platrorm including python instance or flask
 
 ## Current features
 
