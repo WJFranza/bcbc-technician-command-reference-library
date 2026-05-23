@@ -46,7 +46,7 @@ Active working prototype with live search, pack management, and ongoing usabilit
 
 No Apache, database, backend, npm, Python, or internet access is required for normal use.
 
-## Optional Apache 0r NGINX (pronounced "engine-x")  deployment
+## Optional Apache2 & NGINX (pronounced "engine-x")  deployment
 
 Copy the folder to your Apache web root, for example:
 
