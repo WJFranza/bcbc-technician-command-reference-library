@@ -4,7 +4,7 @@
 
 # BCBC Technician Command Reference and Library
 
-A technician-first Linux admin cheat sheet site built for beginners, self-learners, and working support technicians who need fast access to useful commands without digging through scattered notes, old bookmarks, or bloated documentation.
+A technician-first Linux admin command reference site built for beginners, self-learners, and working support technicians who need fast access to useful commands without digging through scattered notes, old bookmarks, or bloated documentation.
 
 This project focuses on clean command packs, searchable workflows, and simple flat-file import/export so useful knowledge can be shared, expanded, and reused without locking everything into a heavy platform. The goal is to make Linux learning and day-to-day troubleshooting more approachable while still being practical enough for real technician work.
 
@@ -15,6 +15,7 @@ This project focuses on clean command packs, searchable workflows, and simple fl
 - Lets users build and extend their own command libraries
 - Keeps the interface simple, fast, and beginner-friendly
 - Helps turn useful commands into reusable learning material
+- Stand along car run on any plafrorm with a WWW Browser or on any webserver platrorm including python instance or flask
 
 ## Current features
 
