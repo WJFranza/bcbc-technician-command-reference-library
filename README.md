@@ -1,6 +1,6 @@
-# BCBC Technician Tools and Learning System — Standalone Modular Cheat Sheets
+# BCBC Technician Command Reference and Library
 
-<img width="1916" height="821" alt="bcbc-cheat-sheet-both-solder-header" src="https://github.com/user-attachments/assets/4963090b-0cf1-4fb2-80b1-4b7334b19ed0" />
+<img width="1916" height="821" alt="BCBC Technician Command Reference and Library banner" src="assets/bcbc-header.png" />
 
 
 # BCBC Linux Administrator Cheat Sheet Site
@@ -233,5 +233,5 @@ Special thank you to **ClouDNS** for supporting reliable DNS infrastructure for 
 
 ---
 
-- <img width="2172" height="724" alt="bcbc-linux-cheatsheet-technician-tools-killer-top" src="https://github.com/user-attachments/assets/2541db07-6325-449b-bbb4-ea19fc4f9649" />
+- <img width="1916" height="460" alt="BCBC Technician Command Reference and Library footer banner" src="assets/bcbc-footer.png" />
 
