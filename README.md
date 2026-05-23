@@ -1,9 +1,8 @@
-# BCBC Technician Command Reference and Library
 
 <img width="1916" height="821" alt="BCBC Technician Command Reference and Library banner" src="assets/bcbc-header.png" />
 
 
-# BCBC Linux Administrator Cheat Sheet Site
+# BCBC Technician Command Reference and Library
 
 A technician-first Linux admin cheat sheet site built for beginners, self-learners, and working support technicians who need fast access to useful commands without digging through scattered notes, old bookmarks, or bloated documentation.
 
