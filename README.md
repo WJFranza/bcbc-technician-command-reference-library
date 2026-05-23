@@ -46,7 +46,7 @@ Active working prototype with live search, pack management, and ongoing usabilit
 
 No Apache, database, backend, npm, Python, or internet access is required for normal use.
 
-## Optional Apache deployment
+## Optional Apache 0r NGINX (pronounced "engine-x")  deployment
 
 Copy the folder to your Apache web root, for example:
 
@@ -214,6 +214,13 @@ Changes:
 - BCBC Admin Workstation Toolkit pack
 - Expanded Linux admin and defensive operations references
 - Improved portability for GitHub Pages, LAN servers, and offline USB deployments
+---
+
+## New in v4.1
+
+- Added more BCBC Packs
+- Total of 265 Commands and 15 Live Packs
+  
 ---
 
 ## Sharing command packs
