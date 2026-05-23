@@ -482,3 +482,22 @@ input:focus, select:focus, textarea:focus {
   p, .note, .command, .tag { color: #000; }
   .workspace { display: block; }
 }
+
+/* v4 hero: full-width command reference banner */
+.hero--banner-only {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero__wide-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.hero__actions--under-banner {
+  justify-content: center;
+  padding: 18px 20px 8px;
+}
