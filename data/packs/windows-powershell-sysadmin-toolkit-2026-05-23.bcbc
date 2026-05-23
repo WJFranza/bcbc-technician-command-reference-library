@@ -1,0 +1,50 @@
+PACK|windows-powershell-sysadmin-toolkit-2026-05-23|Windows PowerShell SysAdmin Toolkit|PowerShell and Windows administrator commands for system information, networking, services, logs, Defender, files, users, remoting, and troubleshooting.|1.0
+
+ITEM|Active TCP connections|Get-NetTCPConnection|Shows active TCP connections.|Useful for Windows network troubleshooting.|windows,powershell,networking,safe
+ITEM|Admin group members|net localgroup administrators|Shows local Administrators group members.|Quick admin membership check.|windows,users,permissions,safe
+ITEM|Available commands|Get-Command|Lists available PowerShell commands.|Good discovery command.|windows,powershell,help,safe
+ITEM|BIOS details|Get-CimInstance Win32_BIOS|Shows BIOS information.|Useful for hardware inventory.|windows,hardware,inventory,safe
+ITEM|BitLocker status|Get-BitLockerVolume|Shows BitLocker protection status.|Useful for disk encryption checks.|windows,security,bitlocker,safe
+ITEM|CPU information|Get-CimInstance Win32_Processor|Shows CPU details.|Useful for system inventory.|windows,hardware,inventory,safe
+ITEM|Current user|whoami|Shows current logged-in user.|Basic identity check.|windows,users,safe
+ITEM|Current user groups|whoami /groups|Shows groups for current user.|Useful for permissions troubleshooting.|windows,users,permissions,safe
+ITEM|Current user privileges|whoami /priv|Shows current user privileges.|Useful during admin/security checks.|windows,permissions,security,safe
+ITEM|Defender status|Get-MpComputerStatus|Shows Microsoft Defender status.|Useful for endpoint health checks.|windows,defender,security,safe
+ITEM|Disk information|Get-Disk|Shows disk information.|Useful for storage checks.|windows,storage,safe
+ITEM|DNS lookup|Resolve-DnsName google.com|Performs DNS lookup.|Useful for DNS troubleshooting.|windows,dns,networking,safe
+ITEM|DNS servers|Get-DnsClientServerAddress|Shows configured DNS servers.|Useful for network troubleshooting.|windows,dns,networking,safe
+ITEM|Event logs list|wevtutil el|Lists Windows event logs.|Useful for log discovery.|windows,logs,safe
+ITEM|Failed logons|Get-WinEvent -FilterHashtable @{LogName="Security";Id=4625}|Shows failed logon events.|Useful for defensive review.|windows,logs,security,safe
+ITEM|File hash|Get-FileHash file.exe|Calculates file hash.|Useful for integrity checks.|windows,files,security,safe
+ITEM|File permissions|Get-Acl sensitive.txt|Shows file ACL permissions.|Useful for access troubleshooting.|windows,files,permissions,safe
+ITEM|Firewall profiles|Get-NetFirewallProfile|Shows firewall profile status.|Useful for Windows security checks.|windows,firewall,security,safe
+ITEM|Firewall rules|Get-NetFirewallRule|Lists firewall rules.|Useful for firewall review.|windows,firewall,security,safe
+ITEM|Full network summary|Get-NetIPConfiguration|Shows full IP configuration summary.|Useful first network check.|windows,networking,safe
+ITEM|Full system information|systeminfo|Shows full system information.|Useful support baseline.|windows,system,inventory,safe
+ITEM|Installed updates|Get-HotFix|Shows installed updates.|Useful patch review.|windows,updates,security,safe
+ITEM|IP configuration|ipconfig /all|Shows detailed network adapter configuration.|Classic Windows network baseline.|windows,networking,safe
+ITEM|List local users|Get-LocalUser|Shows local user accounts.|Useful for account review.|windows,users,safe
+ITEM|List processes|Get-Process|Shows running processes.|Useful for troubleshooting.|windows,processes,safe
+ITEM|List services|Get-Service|Shows Windows services.|Useful for service checks.|windows,services,safe
+ITEM|List volumes|Get-Volume|Shows mounted volumes.|Useful for storage review.|windows,storage,safe
+ITEM|Local IP addresses|Get-NetIPAddress|Lists local IP addresses.|Useful for network checks.|windows,networking,safe
+ITEM|Logon events|Get-WinEvent -FilterHashtable @{LogName="Security";Id=4624}|Shows successful logon events.|Useful for login review.|windows,logs,security,safe
+ITEM|Network adapters|Get-NetAdapter|Shows network adapters.|Useful for adapter status checks.|windows,networking,safe
+ITEM|Network route table|Get-NetRoute|Displays route table.|Useful routing troubleshooting.|windows,networking,routing,safe
+ITEM|Ping test|Test-Connection host|PowerShell ping-style test.|Useful remote reachability check.|windows,networking,safe
+ITEM|PowerShell version|$PSVersionTable|Shows PowerShell version table.|Useful compatibility check.|windows,powershell,version,safe
+ITEM|Recent system logs|Get-EventLog -LogName System -Newest 50|Shows latest system log entries.|Useful for quick troubleshooting.|windows,logs,safe
+ITEM|Remote command|Invoke-Command -ComputerName host -ScriptBlock {hostname}|Runs a remote command via PowerShell remoting.|Requires authorized WinRM access.|windows,remote,powershell
+ITEM|Repair system files|sfc /scannow|Runs Windows System File Checker.|Useful for repair workflows.|windows,repair,caution
+ITEM|Repair Windows image|DISM /Online /Cleanup-Image /RestoreHealth|Repairs Windows component store.|Useful before or after SFC repair.|windows,repair,caution
+ITEM|Restart computer|Restart-Computer|Reboots Windows machine.|Use carefully on active systems.|windows,power,caution
+ITEM|Restart service|Restart-Service spooler|Restarts a Windows service.|Replace service name as needed.|windows,services,caution
+ITEM|Running services only|Get-Service | Where-Object Status -eq "Running"|Shows only running services.|Useful service review filter.|windows,services,safe
+ITEM|Security logs|Get-EventLog -LogName Security|Reads Security event log.|Useful defensive review.|windows,logs,security,safe
+ITEM|Start transcript|Start-Transcript|Starts logging PowerShell session.|Useful for documentation and audit notes.|windows,powershell,logging,safe
+ITEM|Stop transcript|Stop-Transcript|Stops PowerShell transcript logging.|Use after Start-Transcript.|windows,powershell,logging,safe
+ITEM|System event monitoring|Get-WinEvent -LogName System|Reads System event log.|Useful troubleshooting baseline.|windows,logs,safe
+ITEM|Trace route|tracert google.com|Traces network route.|Classic network path check.|windows,networking,safe
+ITEM|Update Defender signatures|Update-MpSignature|Updates Microsoft Defender signatures.|Useful before scans.|windows,defender,security,safe
+ITEM|Windows uptime|Get-Uptime|Shows system uptime.|Useful support baseline.|windows,system,safe
+ITEM|WinRM test|Test-WSMan host|Tests WinRM remoting availability.|Useful before PowerShell remoting.|windows,remote,powershell,safe

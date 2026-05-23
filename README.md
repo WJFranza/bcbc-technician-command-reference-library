@@ -10,7 +10,7 @@ This project focuses on clean command packs, searchable workflows, and simple fl
 
 ## What it does
 
-- Organizes Linux commands into searchable packs
+- Organizes system administration commands into searchable packs
 - Supports flat-file import and export for easy sharing
 - Lets users build and extend their own command libraries
 - Keeps the interface simple, fast, and beginner-friendly
@@ -139,7 +139,7 @@ This version changes the hero layout to match William's preferred placement:
 
 - wide header banner across the top of the hero section
 - shield logo moved to the right-side visual panel
-- page title updated to `Linux Administrator Cheat Sheets`
+- page title updated to `System Administrator Command References`
 - modular/import wording moved into the supporting lead text
 
 
