@@ -219,7 +219,7 @@ Changes:
 ## New in v4.1
 
 - Added more BCBC Packs
-- Total of 265 Commands and 15 Live Packs
+- 299 commands across 16 packs!!
   
 ---
 
