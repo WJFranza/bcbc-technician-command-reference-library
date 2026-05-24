@@ -1,0 +1,36 @@
+PACK|pihole-native-admin-2026-05-23|Pi-hole Native Admin Toolkit|Native Pi-hole administration commands for FTL, DNS, webserver ports, PADD, logs, updates, service checks, and LAN troubleshooting.|1.0
+
+ITEM|Install Pi-hole|curl -sSL https://install.pi-hole.net -o /tmp/install-pihole.sh && bash /tmp/install-pihole.sh|Downloads the official Pi-hole installer and runs it.|Review installer source first if desired. Native install, not Docker.|pihole,install,native,caution
+ITEM|Check Pi-hole status|pihole status|Shows Pi-hole blocking and DNS service status.|First check after boot or config changes.|pihole,dns,status,safe
+ITEM|Show Pi-hole version|pihole -v|Shows installed Pi-hole component versions.|Useful before updates or troubleshooting.|pihole,version,safe
+ITEM|Update Pi-hole|pihole -up|Updates Pi-hole components.|Use after backup or when ready to update.|pihole,update,caution
+ITEM|Restart DNS resolver|pihole restartdns|Restarts Pi-hole DNS/FTL resolver.|Useful after DNS or list changes.|pihole,dns,service,safe
+ITEM|Restart Pi-hole FTL service|sudo systemctl restart pihole-FTL|Restarts the Pi-hole FTL service through systemd.|Use after config changes if needed.|pihole,systemd,service,safe
+ITEM|Check Pi-hole FTL service|systemctl status pihole-FTL --no-pager|Shows Pi-hole FTL service status.|Useful for native install troubleshooting.|pihole,systemd,status,safe
+ITEM|Follow Pi-hole FTL logs|journalctl -u pihole-FTL -f|Follows live Pi-hole FTL logs.|Useful during DNS/web/admin testing.|pihole,logs,monitoring,safe
+ITEM|View Pi-hole log live|pihole tail|Shows live Pi-hole DNS query log.|Good for verifying clients are using Pi-hole.|pihole,dns,logs,safe
+ITEM|Run Pi-hole debug log|pihole -d|Generates Pi-hole debug output.|Useful before asking for help or documenting issues.|pihole,debug,diagnostics,safe
+ITEM|Show FTL config|pihole-FTL --config|Shows Pi-hole FTL configuration values.|Useful before changing webserver or DNS behavior.|pihole,ftl,config,safe
+ITEM|Change Pi-hole webserver ports|sudo pihole-FTL --config webserver.port '8088o,4444os,[::]:8080o,[::]:4444os'|Changes native Pi-hole webserver listening ports.|Example moves HTTP/HTTPS away from standard ports. Verify syntax for your version before relying on it.|pihole,webserver,ports,caution
+ITEM|Check listening web/DNS ports|sudo ss -tulpn | grep -E ':(53|80|443|8080|8088|4444)\b'|Shows common Pi-hole DNS and web ports with owning processes.|Useful when resolving port conflicts.|pihole,networking,ports,safe
+ITEM|Test local Pi-hole DNS|dig @127.0.0.1 pi-hole.net|Tests DNS resolution through local Pi-hole.|Good local resolver check.|pihole,dns,test,safe
+ITEM|Test LAN Pi-hole DNS|dig @PIHOLE_LAN_IP pi-hole.net|Tests DNS resolution through Pi-hole from another machine.|Replace PIHOLE_LAN_IP with the Pi-hole server address.|pihole,dns,lan,test,safe
+ITEM|Flush Pi-hole logs|pihole flush|Flushes Pi-hole logs.|Use carefully if logs are needed for troubleshooting.|pihole,logs,cleanup,caution
+ITEM|Repair Pi-hole install|pihole -r|Runs Pi-hole repair/reconfigure flow.|Useful after broken installs or network changes.|pihole,repair,caution
+ITEM|Backup Pi-hole settings|pihole-FTL sqlite3 /etc/pihole/gravity.db '.backup /tmp/gravity-backup.db'|Creates a SQLite backup of gravity database.|Advanced backup method. Also consider Teleporter export.|pihole,backup,sqlite,caution
+ITEM|List Pi-hole config directory|sudo ls -lah /etc/pihole|Lists Pi-hole configuration files.|Useful before backup or troubleshooting.|pihole,files,config,safe
+ITEM|List Pi-hole logs|sudo ls -lah /var/log/pihole*|Lists Pi-hole log files.|Useful for diagnostics and disk usage checks.|pihole,logs,files,safe
+ITEM|Check Pi-hole disk usage|sudo du -sh /etc/pihole /var/log/pihole* 2>/dev/null|Shows Pi-hole config/log disk usage.|Useful when logs grow unexpectedly.|pihole,storage,logs,safe
+ITEM|Open PADD locally|padd|Runs PADD dashboard locally if installed.|Useful console dashboard for Pi-hole status.|pihole,padd,dashboard,safe
+ITEM|Update PADD manually|cd ~/padd 2>/dev/null && git pull|Updates PADD if installed from Git.|Adjust path if PADD is installed elsewhere.|pihole,padd,update,safe
+ITEM|Check Pi-hole admin URL|echo 'Try http://PIHOLE_LAN_IP:8088/admin or configured webserver port'|Reminder for native Pi-hole admin URL after port changes.|Replace PIHOLE_LAN_IP and port with your configuration.|pihole,web,lan,notes,safe
+ITEM|Install PADD from GitHub|cd ~ && git clone https://github.com/pi-hole/PADD.git padd|Clones the official PADD dashboard repository into ~/padd.|Use on native Pi-hole installs when PADD is not already available.|pihole,padd,install,dashboard
+ITEM|Run PADD from source|cd ~/padd && ./padd.sh|Runs PADD from the cloned repository.|PADD may ask for Pi-hole v6 authentication if local access is not permitted.|pihole,padd,dashboard,safe
+ITEM|Make PADD executable|chmod +x ~/padd/padd.sh|Ensures the PADD script is executable.|Run this if ./padd.sh will not start.|pihole,padd,permissions,safe
+ITEM|Create local padd command|mkdir -p ~/.local/bin && ln -sf ~/padd/padd.sh ~/.local/bin/padd|Creates a user-local padd command symlink.|Log out/in or ensure ~/.local/bin is in PATH.|pihole,padd,path,safe
+ITEM|Run PADD command|padd|Runs PADD if installed in PATH.|Useful for terminal dashboards.|pihole,padd,dashboard,safe
+ITEM|Update PADD source|cd ~/padd && git pull|Updates PADD from the GitHub repository.|Use if PADD was installed by git clone.|pihole,padd,update,safe
+ITEM|Check PADD help|cd ~/padd && ./padd.sh --help|Shows available PADD options.|Useful because PADD options can change between versions.|pihole,padd,help,safe
+ITEM|Run PADD with API URL|cd ~/padd && ./padd.sh --api http://127.0.0.1:8088/api|Runs PADD against an explicit Pi-hole API URL.|Adjust protocol, host, and port for your Pi-hole webserver config.|pihole,padd,api,advanced
+ITEM|Add user to pihole group|sudo usermod -aG pihole "$USER"|Adds current user to the pihole group.|May help local PADD access on Pi-hole v6. Log out/in afterward.|pihole,padd,permissions,caution
+ITEM|Check Pi-hole CLI password file access|ls -l /etc/pihole/cli_pw|Checks whether the Pi-hole CLI password file exists and permissions are visible.|Useful for troubleshooting PADD authentication on native installs.|pihole,padd,auth,diagnostics
